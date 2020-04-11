@@ -18,7 +18,8 @@ export class App extends Component {
 
     axios.get("http://myapi-profstream.herokuapp.com/api/fc5aa5/wines")
     
-   
+    
+    
 
     .then(response => {
       const wines = response.data;
@@ -32,9 +33,13 @@ export class App extends Component {
           this.setState({abc:wineNames})
           //console.log(this.state.abc)
        }
-       console.log(this.state.abc[2])
-      let links = this.state.abc.map((number) => <link to="/">{number}</link>);
-      console.log(links)
+       //console.log(this.state.abc[2])
+     // let links = this.state.abc.map((number) => <link to="/">{number}</link>);
+    //let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
+    //  function links(){
+    //   let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
+    //   return links
+    // }
     })
     .catch(error => {
       console.log('there is an eror', error)
@@ -45,11 +50,21 @@ export class App extends Component {
 
 
   render() {
+   
+    // function links(){
+      let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
+    //   return links
+    // }
+   
+   
     return (
     <Router>
       <div>
-        
-          {this.state.abc.map((wine, id) => <div><Link to="/abc" key={id}> {wine} </Link></div>)}
+        <ul>
+           {/* {this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)} */}
+           {links}
+        </ul>
+         
           {/* <h1>{this.state.data[3].name}</h1> */}
     {/* <Link to="/abc">{this.state.abc}</Link> */}
           {/* {this.state.data.map((wine, id) => <img key={id} src={wine.pictures} alt="wines"/>)} */}
