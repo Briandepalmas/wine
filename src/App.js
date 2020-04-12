@@ -11,7 +11,15 @@ export class App extends Component {
 
     this.state = {
       data: [],
-      names:[]
+      names:[],
+      year:[],
+      grapes:[],
+      country:[],
+      region:[],
+      description:[],
+      picture:[],
+      price:[]
+
     }
   }
   componentDidMount() {
@@ -25,22 +33,41 @@ export class App extends Component {
     .then(response => {
       const wines = response.data;
       let wineNames=[]
+      let wineYear=[]
+      let wineGrapes=[]
+      let wineRegion=[]
+      let wineCountry=[]
+      let wineDescription=[]
+      let winePicture=[]
+      let winePrice=[]
+     
       console.log("wines ---->", wines)
        this.setState({data: wines})
         
        for(let i=0;i<wines.length;i++){
           //console.log(wines[i].name)
-          wineNames.push(wines[i].name)
-          this.setState({names:wineNames})
-          //console.log(this.state.abc)
+         wineNames.push(wines[i].name)
+         wineYear.push(wines[i].year)
+         wineGrapes.push(wines[i].grapes)
+         wineRegion.push(wines[i].region)
+         wineCountry.push(wines[i].country)
+         wineDescription.push(wines[i].description)
+         winePicture.push(wines[i].picture)
+         winePrice.push(wines[i].price)
+          this.setState({
+            names:wineNames,
+            year:wineYear,
+            grapes:wineGrapes,
+            country:wineCountry,
+            region:wineRegion,
+            description:wineDescription,
+            picture:winePicture,
+            price:winePrice
+
+          }) 
        }
-       //console.log(this.state.abc[2])
-     // let links = this.state.abc.map((number) => <link to="/">{number}</link>);
-    //let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
-    //  function links(){
-    //   let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
-    //   return links
-    // }
+      //  console.log("winessssss ---->", this.state.names)
+      //  console.log("la cienxzia",this.state.year)
     })
     .catch(error => {
       console.log('there is an eror', error)
@@ -51,7 +78,7 @@ export class App extends Component {
 
 
   render() {
-   
+    //console.log("la cienxzia"+this.state.data.country)
     function linkID(id){
       let a=0+id
       let b="/"+a
@@ -66,15 +93,13 @@ export class App extends Component {
     <Router>
       <div>
         <ul>
-           {/* {this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)} */}
            {links}
         </ul>
-         
-          {/* <h1>{this.state.data[3].name}</h1> */}
-    {/* <Link to="/abc">{this.state.abc}</Link> */}
-          {/* {this.state.data.map((wine, id) => <img key={id} src={wine.pictures} alt="wines"/>)} */}
         
-      </div>
+         <div>
+            <Wineinfo info={this.state.data.description}/>
+         </div>
+       </div>
       {/* <Switch>
        <Route exact path="/abc" component={Forms} />
       </Switch> */}
