@@ -66,8 +66,15 @@ export class App extends Component {
 
           }) 
        }
-      //  console.log("winessssss ---->", this.state.names)
-      //  console.log("la cienxzia",this.state.year)
+       console.log("aaaaaaa ---->", this.state.names)
+       console.log("bbbbbbbbb",this.state.year)
+       console.log("bbbbbbbbb",this.state.grapes)
+       console.log("bbbbbbbbb",this.state.country)
+       console.log("bbbbbbbbb",this.state.region)
+       console.log("bbbbbbbbb",this.state.description)
+       console.log("bbbbbbbbb",this.state.picture)
+       console.log("bbbbbbbbb",this.state.price)
+      //  console.log("bbbbbbbbb",this.state.year)
     })
     .catch(error => {
       console.log('there is an eror', error)
