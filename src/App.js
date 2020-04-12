@@ -10,7 +10,7 @@ export class App extends Component {
 
     this.state = {
       data: [],
-      abc:[]
+      names:[]
     }
   }
   componentDidMount() {
@@ -30,7 +30,7 @@ export class App extends Component {
        for(let i=0;i<wines.length;i++){
           //console.log(wines[i].name)
           wineNames.push(wines[i].name)
-          this.setState({abc:wineNames})
+          this.setState({names:wineNames})
           //console.log(this.state.abc)
        }
        //console.log(this.state.abc[2])
@@ -51,8 +51,14 @@ export class App extends Component {
 
   render() {
    
-    // function links(){
-      let links= this.state.abc.map((wine, id) => <li key={id}><Link to="/abc" > {wine} </Link></li>)
+    function linkss(id){
+      let a=0
+      let b=a+id
+      let c="/"+b
+      return c
+    }
+      let links= this.state.names.map((wine, id) => <li key={id}><Link to={linkss(id)} > {wine} </Link></li>)
+     
     //   return links
     // }
    
