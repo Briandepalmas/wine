@@ -70,7 +70,7 @@ export class App extends Component {
       //  console.log("aaaaaaa ---->", this.state.names)
       //  console.log("bbbbbbbbb",this.state.year)
       //  console.log("bbbbbbbbb",this.state.grapes)
-      //  console.log("bbbbbbbbb",this.state.country)
+        console.log("bbbbbbbbb",this.state.country)
       //  console.log("bbbbbbbbb",this.state.region)
       //  console.log("bbbbbbbbb",this.state.description)
       //  console.log("bbbbbbbbb",this.state.picture)
@@ -92,40 +92,32 @@ export class App extends Component {
       let b="/"+a
       return b
     }
-  let links= this.state.data.map((wine, id) => 
   
-  <Link key={id} to={linkID(id)}> 
+    let links= this.state.data.map((wine, id) => 
+  <div className="abc" key={id}>
+    <Link to={linkID(id)}>
+     <img  src={wine.picture} alt="wines"/> 
+    </Link>
+   <div>
+     <Link  id="fonts"to={linkID(id)}>{wine.name}</Link> 
+   </div>
+   
+  </div>
+ )
   
-  <img src={wine.picture} alt="wines"/> 
   
-  
-  </Link>)
-  
-  let years=this.state.year.map(wineyear => <h1>{wineyear}</h1>)
+  // let years=this.state.year.map(wineyear => <h1>{wineyear}</h1>)
    
    
    
     return (
     <Router>
-      <div>
-        <nav className="abc">
-          
-           {links}
-          
-        </nav>
-        
-        
-         <div>
-             <Wineinfo years={years[1]}/> 
-           
-         </div>
+      <div> 
+      
+        <nav >
+              {links}
+        </nav>  
        </div>
-
-
-
-
-
-
     </Router>
     )
   }
