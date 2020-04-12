@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Route,Switch,Link , BrowserRouter as Router} from 'react-router-dom';
+import './App.css'
 import axios from 'axios'
 import Wineinfo from './components/Wineinfo'
 import Forms from './components/Forms'
@@ -66,13 +67,13 @@ export class App extends Component {
 
           }) 
        }
-       console.log("aaaaaaa ---->", this.state.names)
-       console.log("bbbbbbbbb",this.state.year)
-       console.log("bbbbbbbbb",this.state.grapes)
-       console.log("bbbbbbbbb",this.state.country)
-       console.log("bbbbbbbbb",this.state.region)
-       console.log("bbbbbbbbb",this.state.description)
-       console.log("bbbbbbbbb",this.state.picture)
+      //  console.log("aaaaaaa ---->", this.state.names)
+      //  console.log("bbbbbbbbb",this.state.year)
+      //  console.log("bbbbbbbbb",this.state.grapes)
+      //  console.log("bbbbbbbbb",this.state.country)
+      //  console.log("bbbbbbbbb",this.state.region)
+      //  console.log("bbbbbbbbb",this.state.description)
+      //  console.log("bbbbbbbbb",this.state.picture)
        console.log("bbbbbbbbb",this.state.price)
       //  console.log("bbbbbbbbb",this.state.year)
     })
@@ -91,26 +92,35 @@ export class App extends Component {
       let b="/"+a
       return b
     }
-      let links= this.state.names.map((wine, id) => <li key={id}><Link to={linkID(id)} > {wine} </Link></li>)
-      let years=this.state.year.map(wineyear => <h1>{wineyear}</h1>)
+  let links= this.state.data.map((wine, id) => 
+  
+  <Link key={id} to={linkID(id)}> 
+  
+  <img src={wine.picture} alt="wines"/> 
+  
+  
+  </Link>)
+  
+  let years=this.state.year.map(wineyear => <h1>{wineyear}</h1>)
    
    
    
     return (
     <Router>
       <div>
-        <ul>
+        <nav className="abc">
+          
            {links}
-        </ul>
+          
+        </nav>
+        
         
          <div>
              <Wineinfo years={years[1]}/> 
            
          </div>
        </div>
-      {/* <Switch>
-       <Route exact path="/abc" component={Forms} />
-      </Switch> */}
+
 
 
 
