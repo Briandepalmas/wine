@@ -92,7 +92,7 @@ export class App extends Component {
       return b
     }
       let links= this.state.names.map((wine, id) => <li key={id}><Link to={linkID(id)} > {wine} </Link></li>)
-     
+      let years=this.state.year.map(wineyear => <h1>{wineyear}</h1>)
    
    
    
@@ -104,7 +104,8 @@ export class App extends Component {
         </ul>
         
          <div>
-            <Wineinfo info={this.state.data.description}/>
+             <Wineinfo years={years[1]}/> 
+           
          </div>
        </div>
       {/* <Switch>
