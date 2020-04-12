@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route,Switch,Link , BrowserRouter as Router} from 'react-router-dom';
 import axios from 'axios'
+import Wineinfo from './components/Wineinfo'
 import Forms from './components/Forms'
 
 
@@ -51,16 +52,14 @@ export class App extends Component {
 
   render() {
    
-    function linkss(id){
-      let a=0
-      let b=a+id
-      let c="/"+b
-      return c
+    function linkID(id){
+      let a=0+id
+      let b="/"+a
+      return b
     }
-      let links= this.state.names.map((wine, id) => <li key={id}><Link to={linkss(id)} > {wine} </Link></li>)
+      let links= this.state.names.map((wine, id) => <li key={id}><Link to={linkID(id)} > {wine} </Link></li>)
      
-    //   return links
-    // }
+   
    
    
     return (
